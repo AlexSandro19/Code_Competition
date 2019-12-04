@@ -15,6 +15,7 @@ public class Kangaroo{
    {
       int x1,x2;  // Kangaroo Location
       int v1,v2;  // Kangaroo Velocity
+      int count = 0; // 
       boolean kangaroosMet = false;
       
       Scanner console = new Scanner(System.in);
@@ -23,7 +24,7 @@ public class Kangaroo{
       x2 = console.nextInt();
       v2 = console.nextInt();
       
-      while(x1 < 10000 && x2 < 10000)
+      while(!(x1 >= 10000 || x2 >= 10000 || count >= 10000))
       {  
          if ( compareLocation(x1, x2))
          {
@@ -32,9 +33,11 @@ public class Kangaroo{
          }
          x1 += v1;
          x2 += v2;
+         
+         count++;
       }
       
-      if (kangaroosMet) System.out.print("Yes");
-      else System.out.print("No");
+      if (kangaroosMet) System.out.print("YES");
+      else System.out.print("NO");
    }
 }
